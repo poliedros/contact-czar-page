@@ -15,7 +15,7 @@ export class PageEmailService {
 
     await this.emailService.sendMail(
       'contactsite@czar.dev',
-      'carlos@czar.dev',
+      process.env.TO_EMAIL,
       `A new contact from ${name}`,
       description,
       `<div>${description}</div>`,

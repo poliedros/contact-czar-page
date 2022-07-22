@@ -23,6 +23,9 @@ ENV EMAIL=${EMAIL}
 ARG PASSWORD=''
 ENV PASSWORD=${PASSWORD}
 
+ARG TO_EMAIL=''
+ARG TO_EMAIL=${TO_EMAIL}
+
 WORKDIR /usr/src/app
 
 COPY package*.json ./

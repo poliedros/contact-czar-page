@@ -1,5 +1,5 @@
 import { PageEmailService } from './page-email.service';
-import { Body, Controller, Post } from '@nestjs/common';
+import { BadRequestException, Body, Controller, Post } from '@nestjs/common';
 
 type SendEmailDto = {
   name: string;
@@ -14,6 +14,10 @@ export class PageEmailController {
   @Post()
   async sendEmail(@Body() dto: SendEmailDto) {
     console.log(`sending email from ${dto.name} - ${dto.email}`);
+
+    if (!dto.name || !dto.email || !dto.description) {
+      throw new BadRequestException();
+    }
 
     await this.pageEmailService.sendEmail(dto.name, dto.description, dto.email);
 
