@@ -7,8 +7,8 @@ import { PageEmailService } from './page-email.service';
   controllers: [PageEmailController],
   imports: [
     EmailModule.forRoot({
-      email: 'contactsite@czar.dev',
-      password: 'oDIbazzw%JNvHAda',
+      email: process.env.EMAIL,
+      password: process.env.PASSWORD,
     }),
   ],
   providers: [PageEmailService],
