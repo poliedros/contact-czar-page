@@ -1,6 +1,7 @@
 import { EmailModule } from '@czarpoliedros/email';
 import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
+import { SendnessController } from './sendness.controller';
 import SendnessService from './sendness.service';
 
 @Module({
@@ -12,5 +13,6 @@ import SendnessService from './sendness.service';
       password: process.env.PASSWORD,
     }),
   ],
+  controllers: [SendnessController],
 })
 export class SendnessModule {}
